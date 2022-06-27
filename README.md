@@ -9,4 +9,5 @@
 
 ## Reference code
 - Machine Learning tutorial.pdf
-- MPI tutorial(CAC_2022_MPI_example)
+- MPI tutorial(CAC_2022_MPI_example : practice code)
+- CUDA tutorial(cuda_tutorial : practice code)
