@@ -4,7 +4,7 @@
 - Natural Language Process and Application
 - CUDA
 - MPI
-- Gaussian process and Bayesian method
+- Gaussian processes and Bayesian method
 - Information theory and Machine Learning
 
 ## Reference code
