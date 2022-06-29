@@ -10,6 +10,8 @@ __global__ void kernel(void){
 int main(int argc, char *argv[]){
 
     kernel <<<1,5>>>();
-    cudaDeviceReset();
+    cudaDeviceSynchronize();
+
+    // cudaDeviceReset();
     return 0;
 }
