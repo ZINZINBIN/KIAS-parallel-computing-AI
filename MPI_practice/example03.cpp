@@ -1,21 +1,31 @@
 /**
  * @file example02.cpp
  * @author zinzinbin
- * @brief Monte-Carlo Integral code for MPI
+ * @brief Matrix Multiplication for MPI
  * @version 0.1
- * @date 2022-06-27
- * 
+ * @date 2022-06-28
+ *
  * How to execute
- * (1) mpic++ example02.cpp -o example02.out
- * (2) mpirun -np <num_procs> example02.out
+ * (1) mpic++ example03.cpp -o example03.out
+ * (2) mpirun -np <num_procs> example03.out
  */
+
 #include <iostream>
 #include <mpi.h>
 
 using namespace std;
 
-double func(double x){
+float **generate_matrix(int m, int n){
+    float mat = new float*[m];
+    for(int i = 0; i < m; i++){
+        mat[i] = new float[n];  
+    }
+    return mat
+}
 
+float *generate_array(int m){
+    float arr = new float [n];
+    return arr;
 }
 
 int main(int argc, char *argv[])
@@ -41,10 +51,11 @@ int main(int argc, char *argv[])
         // master process : send random seed and receive each process result
         cout << "rank : 0 - send random seed to each process" << rank << endl;
         MPI_Send();
-        
+
         MPI_Recv();
     }
-    else{
+    else
+    {
         // node : receive random seed and proceed calculation process, then send the result to master process
         MPI_Recv();
         cout << "rank : " << rank << " - receive random seed, calculation process start" << endl;
