@@ -41,6 +41,8 @@ int main(int argc, char *argv[])
     cudaMalloc(&dev_b, N * sizeof(int));
     cudaMalloc(&dev_c, N * sizeof(int));
 
+    // cudaMallocManged : unified memory(cpu와 gpu 동시 접근 가능)에 할당하는 경우 cpu와 gpu에 각각 malloc 할 필요 없음
+
     // initialize
     for(int i = 0; i < N; i++){
         a[i] = -i;
@@ -60,6 +62,9 @@ int main(int argc, char *argv[])
 
     // memory copy : from gpu to cpu
     cudaMemcpy(c, dev_c, N * sizeof(int), cudaMemcpyDeviceToHost);
+
+    // barrier
+    cudaDeviceSynchronize();
 
     // display the result
     for(int i = 0; i < N; i++){
